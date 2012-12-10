@@ -22,7 +22,7 @@
 //
 
 #import "QRCodeGenerator.h"
-#import "qrencode.h"
+#import "libqrencode/qrencode.h"
 
 @implementation QRCodeGenerator
 
@@ -42,7 +42,7 @@
 	
 	CGRect rectDraw = CGRectMake(0.0f, 0.0f, pixelSize, pixelSize);
 	// draw
-	CGContextSetFillColor(ctx, CGColorGetComponents([UIColor blackColor].CGColor));
+	CGContextSetFillColor(ctx, CGColorGetComponents([NSColor blackColor].CGColor));
 	for(int i = 0; i < width; ++i) {
 		for(int j = 0; j < width; ++j) {
 			if(*data & 1) {
@@ -55,7 +55,7 @@
 	CGContextFillPath(ctx);
 }
 
-+ (UIImage *)qrImageForString:(NSString *)string imageSize:(CGFloat)size {
++ (NSImage *)qrImageForString:(NSString *)string imageSize:(CGFloat)size {
 	if (![string length]) {
 		return nil;
 	}
@@ -84,8 +84,13 @@
 	
 	// get image
 	CGImageRef qrCGImage = CGBitmapContextCreateImage(ctx);
-	UIImage * qrImage = [UIImage imageWithCGImage:qrCGImage];
-	
+
+    // convert CGImage to NSImage
+    NSBitmapImageRep* rep;
+    rep = [[NSBitmapImageRep alloc] initWithCGImage:qrCGImage];
+    NSImage* qrImage = [[NSImage alloc] initWithSize:NSMakeSize(size*4, size*4)];
+    [qrImage addRepresentation:rep];
+    
 	// free memory
 	CGContextRelease(ctx);
 	CGImageRelease(qrCGImage);
