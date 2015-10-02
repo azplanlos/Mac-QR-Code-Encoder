@@ -21,6 +21,7 @@
 		73963FC0167631D400EC2498 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73963FBF167631D400EC2498 /* AppDelegate.m */; };
 		73963FC3167631D400EC2498 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73963FC1167631D400EC2498 /* MainMenu.xib */; };
 		73963FD51676327300EC2498 /* QRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 73963FCC1676320700EC2498 /* QRCodeGenerator.m */; };
+		A9DE3FCA1BBE979D00678312 /* NSColor+CGColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DE3FC91BBE979D00678312 /* NSColor+CGColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		73963FC2167631D400EC2498 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		73963FCB1676320700EC2498 /* QRCodeGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerator.h; sourceTree = "<group>"; };
 		73963FCC1676320700EC2498 /* QRCodeGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerator.m; sourceTree = "<group>"; };
+		A9DE3FC81BBE979D00678312 /* NSColor+CGColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CGColor.h"; sourceTree = "<group>"; };
+		A9DE3FC91BBE979D00678312 /* NSColor+CGColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+CGColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 		73963FD31676323400EC2498 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9DE3FC81BBE979D00678312 /* NSColor+CGColor.h */,
+				A9DE3FC91BBE979D00678312 /* NSColor+CGColor.m */,
 				73963FCB1676320700EC2498 /* QRCodeGenerator.h */,
 				73963FCC1676320700EC2498 /* QRCodeGenerator.m */,
 				73963FBE167631D400EC2498 /* AppDelegate.h */,
@@ -232,6 +237,7 @@
 				739274BB1676558C00DA4FF9 /* qrspec.c in Sources */,
 				739274BC1676558C00DA4FF9 /* rscode.c in Sources */,
 				739274BD1676558C00DA4FF9 /* split.c in Sources */,
+				A9DE3FCA1BBE979D00678312 /* NSColor+CGColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

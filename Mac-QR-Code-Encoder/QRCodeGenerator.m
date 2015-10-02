@@ -23,6 +23,7 @@
 
 #import "QRCodeGenerator.h"
 #import "libqrencode/qrencode.h"
+#import "NSColor+CGColor.h"
 
 @implementation QRCodeGenerator
 
@@ -42,7 +43,7 @@
 	
 	CGRect rectDraw = CGRectMake(0.0f, 0.0f, pixelSize, pixelSize);
 	// draw
-	CGContextSetFillColor(ctx, CGColorGetComponents([NSColor blackColor].CGColor));
+	CGContextSetFillColor(ctx, CGColorGetComponents([NSColor blackColor].CGColorRef));
 	for(int i = 0; i < width; ++i) {
 		for(int j = 0; j < width; ++j) {
 			if(*data & 1) {
@@ -57,17 +58,19 @@
 
 + (NSImage *)qrImageForString:(NSString *)string imageSize:(CGFloat)size {
 	if (![string length]) {
+        NSLog(@"code creation failed, string length");
 		return nil;
 	}
-	
+    
 	// generate QR
 	QRcode *code = QRcode_encodeString([string UTF8String], 0, QR_ECLEVEL_L, QR_MODE_8, 1);
 	if (!code) {
+        NSLog(@"code creation failed");
 		return nil;
 	}
 	
 	if (code->width > size) {
-		printf("Image size is less than qr code size (%d)\n", code->width);
+		NSLog(@"Image size is less than qr code size (%d)\n", code->width);
 		return nil;
 	}
 	
